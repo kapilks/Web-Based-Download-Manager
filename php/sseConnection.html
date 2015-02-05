@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+
+	<body>
+		
+		<script type="text/javascript">
+		var a = new EventSource('sse.php');
+		a.addEventListener('rec',add,false);
+		a.addEventListener('done',add,false);
+
+		function add( event )
+		{
+			console.log(event.data);
+		}
+		setTimeout('a.close();',5000);
+		</script>
+	</body>
+</html>

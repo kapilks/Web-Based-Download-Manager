@@ -1,0 +1,89 @@
+*
+	{
+		margin: 0;
+		padding: 0;
+		outline: 0;
+		border: 0;
+		text-decoration: none;
+		font-weight: normal;
+		list-style-type: none;
+		font-size: 14px;
+		font-family: calibri,arial, tahoma, verdana, 'calibri light', sans-serif;
+		-webkit-user-select:none;
+		-moz-user-select:none;
+		-ms-user-select:none;
+		user-select:none;
+		cursor: default;
+	}
+
+article, aside, figure, figcaption, footer, header, hgroup, nav, section, summary 
+	{
+		display: block;
+	}
+input[type="submit"]:hover, button:hover
+	{
+		cursor: pointer;
+	}
+input[type="text"]
+	{
+		cursor: auto;
+	}
+.zeroHeight
+	{
+		height: 0;
+	}
+.left
+	{
+		float: left;
+	}
+.right
+	{
+		float: right;
+	}
+.hidden
+	{
+		display: none;
+	}
+.block
+	{
+		display: block;
+		visibility: visible;
+	}
+.inBlock
+	{
+		display: inline-block;
+		visibility: visible;
+	}
+.pointer
+	{
+		cursor: pointer;
+	}
+.afterClear::after
+	{
+		content: '.';
+		display:block;
+		visibility: hidden;
+		clear: both;
+		height: 0;
+	}
+.borderBox
+	{
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		-ms-box-sizing:border-box;
+		-o-box-sizing:border-box;
+		box-sizing:border-box;
+	}
+.clear
+	{
+		clear: both;
+		display: block;
+	}
+html
+	{
+		-webkit-font-smoothing: antialiased;
+	}
+a
+	{
+		display: inline-block;
+	}

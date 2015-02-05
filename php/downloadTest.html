@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Download Testing</title>
+		<style type="text/css">
+			*
+				{
+					padding: 0;
+					margin: 0;
+					outline: 0;
+				}
+			.progress
+				{
+					width: 800px;
+					height: 20px;
+					margin:0 auto;
+					margin-top: 100px;
+					position: relative;
+					background-color: #CAC8C8;
+				}
+			.highlight
+				{
+					position: absolute;
+					
+					left: 0;
+					top: 0;
+					bottom: 0;
+					height: 100%;
+					background-color: rgb(51, 165, 51);
+				}
+			.per
+				{
+					display: block;
+					text-align: center;
+					font-size: 15px;
+					font-family: calibri;
+					line-height: 20px;
+					font-weight: bold;
+					color: #464646;
+					z-index: 10;
+					position: relative;
+				}
+		</style>
+	</head>
+
+	<body>
+		<div class="progress">
+			<span class="per">456</span>
+			<div class="highlight"></div>
+		</div>
+
+		<script type="text/javascript">
+			
+			var newTarget = new EventSource('http://localhost/My%20Work/Download%20Manager/php/download.php?filename=ekvillain.mp3&url=http://media.djmazadownload.com/music/indian_movies/Ek%20Villain%20(2014)/02%20-%20Ek%20Villain%20-%20Banjaara%20[DJMaza.Info].mp3&type=get&size=5mb');
+
+			/*var a=new EventSource("sse.php");
+			a.onmessage = function( event )
+			{
+				console.log( event.data );
+				document.querySelector('.per').textContent = event.data + " % Completed";
+			}
+			a.addEventListener( 'rec', function( event )
+				{
+					var data = JSON.parse( event.data.split('\n').join('') );
+					console.log( data );
+				}, false );
+			a.addEventListener( 'end', function( event )
+				{
+					a.close();
+					console.log( event.data )
+				}, false );
+
+			a.addEventListener( 'done', function( event )
+			{
+				document.querySelector('.per').textContent = event.data;
+			},false);*/
+
+			newTarget.addEventListener( 'connecting', connectingHandler, false );
+			newTarget.addEventListener( 'receiving', receivingHandler, false );
+			newTarget.addEventListener( 'mainerror', errorHandler, false );
+			newTarget.addEventListener( 'copying', function( event )
+				{
+					console.log( event.data );
+					document.querySelector('.progress .per').textContent = event.data;
+				},false );
+			newTarget.addEventListener( 'complete', function( event)
+				{
+					newTarget.close();
+					console.log( event.data );
+					document.querySelector('.progress .per').textContent = event.data;
+				}, false );
+			function connectingHandler( event )
+			{
+				var data = event.data;
+				console.log(data);
+				document.querySelector('.progress .per').textContent = data;
+				document.querySelector('.highlight').style.backgroundColor = "rgb(51, 165, 51)";
+			}
+
+			function receivingHandler( event )
+			{
+				var data = JSON.parse( event.data.split('\n').join('') );
+				document.querySelector('.progress .per').textContent = data.per * 100 + " % Complete";
+				document.querySelector('.highlight').style.width = data.per * 100 + "%";
+				console.log( data );
+				document.querySelector('.highlight').style.backgroundColor = "rgb(51, 165, 51)";
+			}
+
+			function errorHandler( event )
+			{
+				var data = event.data;
+				console.log( data );
+				document.querySelector('.progress .per').textContent = data;
+				document.querySelector('.highlight').style.backgroundColor = "rgb(235, 46, 46)";
+			}
+
+		</script>
+	</body>
+</html>

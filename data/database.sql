@@ -1,0 +1,2 @@
+CREATE DATABASE IF NOT EXISTS kink
+CREATE TABLE IF NOT EXISTS kink.files( file_id int primary key auto_increment, filename varchar(255), url varchar(2048), filesize int, type char(3), ext varchar(15), complete char(1), resume char(1), avg_speed varchar(20), last_try timestamp , added_on timestamp, INDEX by_name (filename) )
