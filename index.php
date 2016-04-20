@@ -235,8 +235,8 @@
 				</div>
 				<div id="footer">
 					<ul><!-- for terms and condition -->
-						<li>Help</li>
-						<li>Improve</li>
+						<li><a target="_blank" href="https://github.com/Kapilks/Kink-Download-Manager/blob/master/README.md">Help</a></li>
+						<li><a target="_blank" href="https://github.com/Kapilks/Kink-Download-Manager">Improve</a></li>
 					</ul>
 					<p class="right me">Developed By <span class="arrow">|</span> 
 						<a class="web" title="www.kapilkumarsingh.in" href="https://github.com/Kapilks" target="_blank">Kapil Kumar Singh</a>
