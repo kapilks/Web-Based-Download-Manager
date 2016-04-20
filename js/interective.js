@@ -407,17 +407,18 @@ function addFormSubmitHandler( event )
 				}
 				else
 				{
+					console.log(response);
 					var detail = form.nextElementSibling.nextElementSibling;
 					var name = response.name;
 					console.log(name);
 					if( name == '')
 					{
-						name = 'file'+response.ext;
+						name = 'file' + response.ext;
 						console.log(name)
 					}
 					else if( name.indexOf(response.ext) < 0)
 					{
-						name = name + ext;
+						name = name + response.ext;
 						console.log(name);
 					}
 					detail.children[0].setAttribute( 'data-type', response.type );
