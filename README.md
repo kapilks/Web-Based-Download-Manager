@@ -28,7 +28,7 @@
 
     ![Directory Structure](screenshots/directory_structure.png)
 
-3. Allow download to be paused and resume later if origin server support it.<br/>
+3. Allow download to be paused and resume later if the origin server supports it.<br/>
     This is checked by `Accept-Ranges` header in server response.
 4. Real time graph of the current download speed.
     Drawn on HTML5 `<canvas>` element.
